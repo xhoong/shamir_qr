@@ -1,17 +1,17 @@
 ## Shamir Backup QR-Code Generator for Crypto Wallet Seed Words
 
-Shamir Backup is a method to secure backup your crypto wallet seed words.
+Shamir Backup is a method used to securely backup your crypto wallet seed words.
 
-The programme will encrypt the provided text and split it to 3 (settable) QR-code images. 
+The programme will encrypt the provided text and split it into 3 (settable) QR-code images. 
 The 3 generated QR-codes can then be used to recover the original text, with minimum of 2 (settable)
-QR-code required to recover.
+QR-codes required to recover.
 
-The generated QR-code can then be printed out and shared with your trusted parties. 
-In case you loss your secret words, you need get at least 2 (any 2), and use the programme
+The generated QR-codes can then be printed out and shared with your trusted parties. 
+In case if you loose your secret words, you need to get at least 2 (any 2) QR-codes, and use the programme
 to recover the original text again by scanning the QR-code to uncover the scanned text.
 
 All process is done locally, no information is transferred out during the programme execution.
-By default, non-persist mode is used, so no intermediaries files is stored on disk, except the generated QR-codes.
+By default, non-persist mode is used, so no intermediaries files is stored on disk, except for the generated QR-codes.
 
 For more info on Shamir secret sharing, visit [PyCyptodome doc](https://www.pycryptodome.org/src/protocol/ss#Crypto.Protocol.SecretSharing.Shamir)
 
@@ -47,7 +47,7 @@ Index #3: b'efda13f0f2ca59b3d7c9a7d6f3bdcd52'
 Encrypted Shamir split saved to enc_3.txt (if persist) with QR code file encqr_3.png
 ```
 
-The input will then be encrypted using `AES` and split the secret into `3` QR-code image. 
+The input will then be encrypted using `AES` and split into `3` QR-code images.  
 Refer to sample of generated QR-code in the [sample_output](./sample_output) folder for file 
 [encqr_1.png](./sample_output/encqr_1.png), [encqr_2.png](./sample_output/encqr_2.png) and so on.
 
@@ -57,9 +57,9 @@ To decrypt and recover your secret:
 python main.py --decrypt
 ```
 
-Scanned the QR-code and copy the text content, input to the programme prompt. 
-You need to scan at least 2 QR-codes to recover the 2 text content, depends on
-your first encrypt, if you set the parameter `--min` (default to 2).
+Scanned the QR-code and copy the text content, input into the programme prompt. 
+You need to scan at least 2 QR-codes to recover, depends on
+your first encryption settings, if you set the parameter `--min` (default to 2).
 
 ```text
 > python main.py --decrypt
