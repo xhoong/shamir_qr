@@ -27,8 +27,8 @@ def shamir_encrypt(data: str, min: int, split: int, persist: bool):
     for idx, share in shares:
         print("Index #%d: %s" % (idx, hexlify(share)))
 
-        share = {"i": idx,"k":hexlify(share).decode('UTF-8'),"t":en_text.decode('UTF-8')}
-        b64_txt = b2a_base64(bytes(json.dumps(share), 'UTF-8'), newline=False)
+        share_js = {"i": idx,"k":hexlify(share).decode('UTF-8'),"t":en_text.decode('UTF-8')}
+        b64_txt = b2a_base64(bytes(json.dumps(share_js), 'UTF-8'), newline=False)
         if persist:
             with open(f"enc_{idx}.txt", "wb") as fo:
                 fo.write(b64_txt)
@@ -37,6 +37,7 @@ def shamir_encrypt(data: str, min: int, split: int, persist: bool):
 
         img = qr.make_image(fill_color="black", back_color="white")
         img.save(f"encqr_{idx}.png")
+        qr.clear()
         print(f"Encrypted Shamir split saved to enc_{idx}.txt (if persist) with QR code file encqr_{idx}.png")
 
 
